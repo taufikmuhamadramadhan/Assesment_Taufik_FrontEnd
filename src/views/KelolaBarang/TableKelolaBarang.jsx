@@ -139,7 +139,7 @@ const KelolaDataDosenWali = () => {
                   <CCol md={8} xs={6}>
                     <CRow>
                       <CCol md={2}>
-                        <Link to={'/kelola/dosen/wali/tambah'} className="link-card">
+                        <Link to={'/kelolaBarang/create/'} className="link-card">
                           <CButton variant="outline" color="dark">
                             <CIcon icon={cilUserPlus} className="mx-2" />
                             Create
