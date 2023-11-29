@@ -23,7 +23,7 @@ import {
   CModalFooter,
   CInputGroupText,
 } from '@coreui/react'
-import { cilTrash, cilUserPlus, cilSearch } from '@coreui/icons'
+import { cilTrash, cilUserPlus, cilSearch, cilPen } from '@coreui/icons'
 import { Link } from 'react-router-dom'
 import CIcon from '@coreui/icons-react'
 import '../../assets/css/style.css'
@@ -77,7 +77,7 @@ const KelolaDataDosenWali = () => {
   const handleDelete = (id) => {
     setLoading(true)
     // URL API untuk menghapus data semester dengan id tertentu
-    const apiUrl = `http://localhost:8080/api/admins/dosen_wali/delete/${id}`
+    const apiUrl = `http://localhost:8080/api/barang/destroy/${id}`
 
     // Menggunakan Axios untuk mengirim permintaan DELETE
     axios
@@ -88,14 +88,14 @@ const KelolaDataDosenWali = () => {
         // Handle ketika data berhasil dihapus
         console.log('Data berhasil dihapus:', response.data)
 
-        setBarangData((prevData) => prevData.filter((dosenWali) => dosenWali.id_dosenwali !== id))
+        setBarangData((prevData) => prevData.filter((barang) => barang.KodeBarang !== id))
 
         // Tutup modal setelah berhasil menghapus
         setModalDelete(false)
         // Menampilkan Sweet Alert saat berhasil menghapus data
         Swal.fire({
           title: 'Berhasil',
-          text: `Data Dosen Wali berhasil dihapus.`,
+          text: `Data Barang Wali berhasil dihapus.`,
           icon: 'success',
           confirmButtonText: 'OK',
         })
@@ -188,7 +188,7 @@ const KelolaDataDosenWali = () => {
                         <CTableDataCell>{data.Stok}</CTableDataCell>
                         <CTableDataCell>
                           <CCol>
-                            {/* <Link to={`/kelola/dosen/wali/update/${data.id_dosenwali}`}>
+                            <Link to={`/kelolaBarang/update/${data.KodeBarang}`}>
                               <CButton
                                 color="primary"
                                 variant="outline"
@@ -197,7 +197,7 @@ const KelolaDataDosenWali = () => {
                               >
                                 <CIcon icon={cilPen} />
                               </CButton>
-                            </Link> */}
+                            </Link>
                             <CButton
                               color="danger"
                               variant="outline"
@@ -232,19 +232,7 @@ const KelolaDataDosenWali = () => {
         <CModalHeader>
           <CModalTitle id="DeleteModal">Delete</CModalTitle>
         </CModalHeader>
-        <CModalBody>
-          Yakin ingin delete{' '}
-          {selectedData
-            ? selectedData.dosen +
-              ' (' +
-              selectedData.dosen_id +
-              ') ' +
-              selectedData.kelas +
-              ' ' +
-              selectedData.prodi
-            : ''}{' '}
-          ?
-        </CModalBody>
+        <CModalBody>Yakin ingin delete {selectedData ? selectedData.NamaBarang : ''} ?</CModalBody>
         <CModalFooter>
           <CRow className="mt-2">
             {message && (
@@ -263,7 +251,7 @@ const KelolaDataDosenWali = () => {
           >
             Close
           </CButton>
-          <CButton color="danger" onClick={() => handleDelete(selectedData.id_dosenwali)}>
+          <CButton color="danger" onClick={() => handleDelete(selectedData.KodeBarang)}>
             Delete
           </CButton>
         </CModalFooter>
