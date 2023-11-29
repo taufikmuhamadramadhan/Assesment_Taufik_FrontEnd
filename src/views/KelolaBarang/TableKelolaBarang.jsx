@@ -120,6 +120,7 @@ const KelolaDataDosenWali = () => {
     //Search filter data
     return (
       searchText === '' ||
+      data.KodeBarang.toLowerCase().includes(searchText.toLowerCase()) ||
       data.NamaBarang.toLowerCase().includes(searchText.toLowerCase()) ||
       data.Satuan.toLowerCase().includes(searchText.toLowerCase()) ||
       data.HargaSatuan.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -165,6 +166,7 @@ const KelolaDataDosenWali = () => {
               <CTable striped bordered responsive className="mt-2">
                 <CTableHead>
                   <CTableRow>
+                    <CTableHeaderCell>Kode Barang</CTableHeaderCell>
                     <CTableHeaderCell>Nama Barang</CTableHeaderCell>
                     <CTableHeaderCell>Satuan</CTableHeaderCell>
                     <CTableHeaderCell>Harga per Satuan</CTableHeaderCell>
@@ -182,6 +184,7 @@ const KelolaDataDosenWali = () => {
                   ) : (
                     filteredData.map((data) => (
                       <CTableRow key={data.KodeBarang}>
+                        <CTableDataCell>{data.KodeBarang}</CTableDataCell>
                         <CTableDataCell>{data.NamaBarang}</CTableDataCell>
                         <CTableDataCell>{data.Satuan}</CTableDataCell>
                         <CTableDataCell>Rp. {data.HargaSatuan}</CTableDataCell>

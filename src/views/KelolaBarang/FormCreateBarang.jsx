@@ -24,6 +24,7 @@ const FormCreateSemester = () => {
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
+    kode_barang: '',
     nama_barang: '',
     satuan: '',
     harga_satuan: '',
@@ -37,6 +38,7 @@ const FormCreateSemester = () => {
 
     // Membuat objek newSemester
     const newBarang = {
+      KodeBarang: formData.kode_barang,
       NamaBarang: formData.nama_barang,
       Satuan: formData.satuan,
       HargaSatuan: formData.harga_satuan,
@@ -78,6 +80,21 @@ const FormCreateSemester = () => {
           <CCardHeader>Form Tambah Barang</CCardHeader>
           <CCardBody>
             <CRow className="g-3">
+              <CCol md={12}>
+                <CInputGroup className="mb-3">
+                  <CInputGroupText id="kode_barang">
+                    <CIcon icon={cilShortText} />
+                  </CInputGroupText>
+                  <CFormInput
+                    name="kode_barang"
+                    placeholder="Kode Barang"
+                    floatingLabel="Kode Barang"
+                    aria-describedby="kode_barang"
+                    required
+                    onChange={(e) => setFormData({ ...formData, kode_barang: e.target.value })}
+                  />
+                </CInputGroup>
+              </CCol>
               <CCol md={6}>
                 <CInputGroup className="mb-3">
                   <CInputGroupText id="nama_barang">
