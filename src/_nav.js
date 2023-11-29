@@ -31,15 +31,15 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'Typography',
-    to: '/theme/typography',
+    name: 'Data Kasir',
+    to: '/Kasir/',
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
 
   {
     component: CNavItem,
-    name: 'Docs',
-    href: 'https://coreui.io/react/docs/templates/installation/',
+    name: 'Data Tenan',
+    to: '/Tenan/',
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
 ]
