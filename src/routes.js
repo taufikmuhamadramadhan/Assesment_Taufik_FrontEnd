@@ -64,7 +64,7 @@ const routes = [
   //route kelola barang
   { path: '/kelolaBarang/', name: 'Tabel Barang', element: TableBarang },
   { path: '/kelolaBarang/create/', name: 'Form Create Barang', element: CreateBarang },
-  { path: '/kelolaBarang/Update', name: 'Form Update Barang', element: UpdateBarang },
+  { path: '/kelolaBarang/Update/:id', name: 'Form Update Barang', element: UpdateBarang },
 
   //route Kasir dan Tenan
   { path: '/Kasir/', name: 'Tabel Kasir', element: TableKasir },
