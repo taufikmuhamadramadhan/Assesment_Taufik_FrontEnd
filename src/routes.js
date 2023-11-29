@@ -50,7 +50,26 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
+//Kelola Barang
+
+const TableBarang = React.lazy(() => import('./views/KelolaBarang/TableKelolaBarang'))
+const CreateBarang = React.lazy(() => import('./views/KelolaBarang/FormCreateBarang'))
+const UpdateBarang = React.lazy(() => import('./views/KelolaBarang/FormUpdateBarang'))
+
+//Kasir dan Tenan
+const TableKasir = React.lazy(() => import('./views/pages/TableKasir'))
+const TableTenan = React.lazy(() => import('./views/pages/TableTenan'))
+
 const routes = [
+  //route kelola barang
+  { path: '/kelolaBarang/', name: 'Tabel Barang', element: TableBarang },
+  { path: '/kelolaBarang/create/', name: 'Form Create Barang', element: CreateBarang },
+  { path: '/kelolaBarang/Update', name: 'Form Update Barang', element: UpdateBarang },
+
+  //route Kasir dan Tenan
+  { path: '/Kasir/', name: 'Tabel Kasir', element: TableKasir },
+  { path: '/Tenan/', name: 'Tabel Tenan', element: TableTenan },
+
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
